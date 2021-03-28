@@ -1,6 +1,3 @@
-/* Set up var colors? */
-
-
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -31,7 +28,7 @@ textarea {
 .custom-header {
   text-align: center;
   align-content: center;
-  border: 1px solid #000;
+  border: 1px solid black;
   border-radius: 15px;
   background-color: black;
   color: white;
@@ -45,18 +42,9 @@ textarea {
   font-size: 15px;
 }
 
-/* .time-block {
-  text-align: center;
-  align-content: center;
-} */
-
 .custom-time {
-  text-align: center;
-  align-content: center;
-  /* justify-items: center; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* justify-self: center; */
+  text-align: justify;
+  padding: 20px;
   border: 1px solid #adb5bd;
   border-radius: 15px 0 0 15px;
   background-color: white;
@@ -67,19 +55,20 @@ textarea {
 .beer-taskbar {
   text-align: center;
   align-content: center;
+  text-justify: inter-word;
+  padding: 20px;
   border: 1px solid #adb5bd;
   /* background-color: variable; */
   color: black;
 }
 
-.custom-icon1,
-.custom-icon2 {
-  text-align: center;
-  align-content: center;
-  border: 1px solid #adb5bd;
-  border-radius: 0 15px 15px 0;
-  background-color: white;
-  color: black;
+ul {
+  margin: 3rem auto;
+  font-size: 1.75rem;
+}
+
+ul li {
+  margin: 1.2rem 0;
 }
 
 .row {
@@ -109,7 +98,22 @@ textarea {
   color: white;
 }
 
+.custom-icon1,
+.custom-icon2 {
+  text-align: center;
+  align-content: center;
+  padding: 10px;
+  border: 1px solid black;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: white;
+  color: black;
+}
+
 .saveBtn {
+  text-align: center;
+  align-content: center;
+  padding: 10px;
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -124,11 +128,12 @@ textarea {
 
 .today { 
   text-align: center;
-  justify-content: center; 
+  justify-content: center;
+  padding: 20px;
   font-family: Arial, sans-serif;
   font-size: 25px;
   margin-left: 2%; 
-  color:green;
+  color: #06aed5;
   background-color: black;
   border-radius: 10px;
 }

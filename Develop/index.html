@@ -16,11 +16,7 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"/>
     
-          <link rel="stylesheet" href="style.css"/>
-
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script> -->
+    <link rel="stylesheet" href="style.css"/>
 
     <title>Work Day Scheduler</title>
   </head>
@@ -29,80 +25,80 @@
     <header class="jumbotron">
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
-       <!-- Live Day/Date/Time goes here -->
       <div class="row justify-content-md-center">
-        <p class="col-md-auto today" id="currentDay"></p>
+        <p class="col-md-auto today"><span id="currentDay">loading...</span></p>
       </div>    
     </header>
 
     <div class="container">
-      <!-- Timeblocks go here -->
         <div class="row custom-header">
           <div class="col">Time</div>
           <div class="col-10">To do:</div>
-          <div class="col">Complete</div>
-        </div>
+          <div class="col">Save</div>
+        </div>      
 
-        <div class="row time-block">
-          <div class="col custom-time">9am</div>
-          <div class="col-10 custom-taskbar">Add task/s here</div>
-          <div class="col custom-icon1">Add icon (a lock?)</div>
-        </div>
+        <form id="form">
+          <div class="row time-block" id="9">
+            <div class="col custom-time">9am</div>
+            <input type="text" class="col-10 custom-taskbar" id="task-input" placeholder="Add task/s here">
+            <button class="saveBtn col custom-icon1 fas fa-save" style="font-size:50px;"></button>
+          </div>
+        
+          <div class="row time-block" id="10">
+            <div class="col custom-time">10am</div>
+            <input type="text" class="col-10 custom-taskbar" id="task-input"  placeholder="Add task/s here">
+            <button class="saveBtn col custom-icon1 fas fa-save" style="font-size:50px;"></button>
+          </div>
 
-        <div class="row time-block">
-          <div class="col custom-time">10am</div>
-          <div class="col-10 custom-taskbar">Add task/s here</div>
-          <div class="col custom-icon1">Add icon (a lock?)</div>
-        </div>
+          <div class="row time-block" id="11">
+            <div class="col custom-time">11am</div>
+            <input type="text" class="col-10 custom-taskbar" id="task-input" placeholder="Add task/s here">
+            <button class="saveBtn col custom-icon1 fas fa-save" style="font-size:50px;"></button>
+          </div>
+       
+          <div class="row time-block" id="12">
+            <div class="col custom-time">12noon</div>
+            <input type="text" class="col-10 custom-taskbar" id="task-input" placeholder="Add task/s here">
+            <button class="saveBtn col custom-icon1 fas fa-save" style="font-size:50px;"></button>
+          </div>
+        
+          <div class="row time-block" id="13">
+            <div class="col custom-time">1pm</div>
+            <input type="text" class="col-10 custom-taskbar" id="task-input" placeholder="Add task/s here">
+            <button class="saveBtn col custom-icon1 fas fa-save" style="font-size:50px;"></button>
+          </div>
+       
+          <div class="row time-block" id="14">
+            <div class="col custom-time">2pm</div>
+            <input type="text" class="col-10 custom-taskbar" id="task-input" placeholder="Add task/s here">
+            <button class="saveBtn col custom-icon1 fas fa-save" style="font-size:50px;"></button>
+          </div>
+       
+          <div class="row time-block" id="15">
+            <div class="col custom-time">3pm</div>
+            <input type="text" class="col-10 custom-taskbar" id="task-input" placeholder="Add task/s here"><span id="task-input"></span>
+            <button class="saveBtn col custom-icon1 fas fa-save" style="font-size:50px;"></button>
+          </div>
+       
+          <div class="row time-block" id="16">
+            <div class="col custom-time">4pm</div>
+            <input type="text" class="col-10 custom-taskbar" id="task-input" placeholder="Add task/s here"><span id="task-input"></span>
+            <button class="saveBtn col custom-icon1 fas fa-save" style="font-size:50px;"></button>
+          </div>
+        </form>
 
-        <div class="row time-block">
-          <div class="col custom-time">11am</div>
-          <div class="col-10 custom-taskbar">Add task/s here</div>
-          <div class="col custom-icon1">Add icon (a lock?)</div>
-        </div>
-
-        <div class="row time-block">
-          <div class="col custom-time">12 noon</div>
-          <div class="col-10 custom-taskbar">Add task/s here</div>
-          <div class="col custom-icon1">Add icon (a lock?)</div>
-        </div>
-
-        <div class="row time-block">
-          <div class="col custom-time">1pm</div>
-          <div class="col-10 custom-taskbar">Add task/s here</div>
-          <div class="col custom-icon1">Add icon (a lock?)</div>
-        </div>
-
-        <div class="row time-block">
-          <div class="col custom-time">2pm</div>
-          <div class="col-10 custom-taskbar">Add task/s here</div>
-          <div class="col custom-icon1">Add icon (a lock?)</div>
-        </div>
-
-        <div class="row time-block">
-          <div class="col custom-time">3pm</div>
-          <div class="col-10 custom-taskbar">Add task/s here</div>
-          <div class="col custom-icon1">Add icon (a lock?)</div>
-        </div>
-
-        <div class="row time-block">
-          <div class="col custom-time">4pm</div>
-          <div class="col-10 custom-taskbar">Add task/s here</div>
-          <div class="col custom-icon1">Add icon (a lock?)</div>
-        </div>
-
-        <div class="row time-block">
-          <div class="col custom-time">5pm</div>
-          <div class="col-10 beer-taskbar">Beer o'clock!</div>
-          <div class="col custom-icon2">Add icon (glass of beer?)</div>
-        </div>
+          <div class="row time-block">
+            <div class="col custom-time" style="font-size:30px;">5pm</div>
+            <div class="col-10 beer-taskbar" style="font-size:30px;">Beer o'clock!</div>
+            <div class="col custom-icon2 fas fa-beer" style="font-size:50px;"></div>
+          </div>
     </div>
 
     <br>
     <br>
 
     <div class="container px-9">
-      <!-- Key goes here -->
+      <!-- Key goes here - need to fix colors -->
         <div class="row custom-key gx-5 justify-content-md-center">
           <div class="col-3 p-3 border bg-secondary">Grey = in the past</div>
           <div class="col-3 p-3 border bg-danger">Red = right now</div>
@@ -110,6 +106,9 @@
         </div>
     </div>
        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+    <script src="script.js"></script>
+
   </body>
 </html>
