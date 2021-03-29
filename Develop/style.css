@@ -1,6 +1,6 @@
 body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
+  font-family: 'New Tegomin', 'Open Sans', sans-serif;
+  font-size: 20px;
   line-height: 1;
 }
 
@@ -39,7 +39,7 @@ textarea {
   align-content: center;
   border-radius: 15px;
   color: white;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .custom-time {
@@ -121,7 +121,7 @@ ul li {
   color: white;
 }
 
-.saveBtn i:hover {
+button:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
@@ -130,7 +130,7 @@ ul li {
   text-align: center;
   justify-content: center;
   padding: 20px;
-  font-family: Arial, sans-serif;
+  font-family: 'New Tegomin', 'Open Sans', sans-serif;
   font-size: 25px;
   margin-left: 2%; 
   color: #06aed5;

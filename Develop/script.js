@@ -6,151 +6,93 @@ function update() {
 setInterval(update, 1000);
 
 
+// Function to handle form submission & prevent the default behavior:
+function handleFormSubmit(event) {
+  event.preventDefault();
+}
+
+handleFormSubmit();
 
 // Still to complete the following code:
-// 1. I can enter an event/task when I click into a timeblock.
-// 2. The text for that event is saved in local storage when I click the save button for that timeblock.
-// 3. The form does not clear the inputted hourly tasks on refresh; ie. they persist.
-// 4. The tasks are color-coded based on the time of day for past (grey), present (pink) & future (green) times.
-// 5. The save button fades on hover. 
-
-
+// 1. The text for the event is saved in local storage when I click the save button for that timeblock.
+// 2. The form does not clear the inputted hourly tasks on refresh; ie. they persist.
+// 3. The tasks are color-coded based on the time of day for past (grey), present (pink) & future (green) times.
+// 4. The save button fades on hover.
 
 // Set variables for timeblocks:
 var taskFormEl = $('#form');
 var taskEl = $('#task-list');
 var taskInput = document.querySelector('#task-input');
-var saveBtn = document.querySelector('.saveBtn');
+var saveBtns = document.querySelectorAll('.saveBtn');
+
+// Set local storage for task/event inputs:
 var task = localStorage.getItem('custom-taskbar');
-var scheduleTime = document.querySelector('.custom-time');
-var currentTime = document.querySelector('.today');
-var setBackgroundColor;
+var taskInput = localStorage.getItem('task-input');
 
-taskInput.textContent = task;
+function SavetoLocalStorage(event){
+  console.log(event.target.parentElement.children[1].value);
+  var textValue = event.target.parentElement.children[1].value;
+  var timeValue = event.target.parentElement.children[0].textContent;
 
-saveBtn.addEventListener('click', function(event) {
-  event.preventDefault();
-//   if (!taskInput) {
-//     return;
-//   } else 
-//   localStorage.setItem('hour-task', task);
+  var exitingSchedulers = JSON.parse(localStorage.getItem("schedulerDetails"));
+    exitingSchedulers.push({"time": timeValue, "task": textValue});
+    localStorage.setItem("schedulerDetails", JSON.stringify(exitingSchedulers) )
+}
+
+// Code for checking time of inputs versus now & color-code:
+const rows = document.getElementsByClassName('time-block');
+let currentHour = parseInt(moment().format('H'));
+
+Array.from(rows).forEach(row => {
+  let
+    rowIdString = row.id,
+    rowHour;
+  if (rowIdString) {
+    rowHour = parseInt(rowIdString);
+  }
+  if (rowHour) {
+    if (currentHour === rowHour) {
+      setColor(row, '#ff6961');
+    } else if ((currentHour < rowHour) && (currentHour > rowHour - 6)) {
+      setColor(row, '#77dd77');
+    } else if ((currentHour > rowHour) && (currentHour < rowHour + 6)) {
+      setColor(row, '#d3d3d3');
+    } else {
+      setColor(row, '#FFFFFF');
+    }
+  }
 });
 
+function setColor(element, color) {
+  element.style.backgroundColor = color;
+}
 
-// TAKE 1:
-// function colorDisplay () {
-//   if (scheduleTime === update.format ('hh')) {
-//   setBackgroundColor(row, "#ff6961")
-//   }
+saveBtns.forEach(function(element){
+  element.addEventListener('click', SavetoLocalStorage)
+});
 
-//   else if (scheduleTime < update.format ('hh')) {
-//   setBackgroundColor(row, "#d3d3d3")
-//   }
+taskFormEl.on('submit', handleFormSubmit);
 
-//   else {
-//   setBackgroundColor(row, "#77dd77")
-//   }
-// }
 
-// colorDisplay();
+// ALTERNATIVE code for checking time of inputs versus now & color-code:
+// var scheduleTime = document.querySelector('.custom-time');
 
 // function setBackgroundColor(element, color) {
 //   element.style.backgroundColor = color;
 // }
 
-
-// TAKE 2:
 // function colorDisplay () {
-//   if (scheduleTime === (moment().format ('hh'))
-//   setBackgroundColor(row, '#ff6961')
+//   if (scheduleTime === moment().format('hh')) {
+//   setBackgroundColor(taskInput, '#ff6961')
 //   }
 
-//   else if (scheduleTime < (moment().format ('hh'))
-//   setBackgroundColor(row, '#d3d3d3')
+//   else if (scheduleTime < moment().format('hh')) {
+//   setBackgroundColor(taskInput, '#d3d3d3')
 //   }
 
 //   else {
-//   setBackgroundColor(row, '#77dd77')
+//   setBackgroundColor(taskInput, '#77dd77')
 //   }
 // }
 
 // colorDisplay();
-
-// function setBackgroundColor(element, color) {
-//   element.style.backgroundColor = color;
-// }
-
-
-
-
-// ..............................................
-// TRY ALL OF THIS CODE BELOW?
-// const rows = document.getElementsByClassName('time-block');
-// let currentHour = parseInt(moment().format('H'));
-
-// Array.from(rows).forEach(row => {
-//   let
-//     rowIdString = row.id,
-//     rowHour;
-//   if (rowIdString) {
-//     rowHour = parseInt(rowIdString);
-//   }
-//   if (rowHour) {
-// //     // Compares row id to current hour and sets color accordingly
-//     if (currentHour === rowHour) {
-//       setColor(row, "red");
-//     } else if ((currentHour < rowHour) && (currentHour > rowHour - 6)) {
-//       setColor(row, "green");
-//     } else if ((currentHour > rowHour) && (currentHour < rowHour + 6)) {
-//       setColor(row, "lightgrey");
-//     } else {
-//       setColor(row, "white");
-//     }
-//   }
-// });
-
-// function setColor(element, color) {
-//   element.style.backgroundColor = color;
-// }
-// ..............................................
-
-// // create function to handle form submission
-// function handleTaskSubmit(event) {
-//   event.preventDefault();
-
-// Select form element by its `name` attribute and get its value
-  // var taskDescription = $('input[name='hour-task']').val();
-  // }
-
-
-//   // clear the form input element
-//   $('input[name="hour-task"]').val('');
-// }
-
-// // Create a submit event listener on the form element
-// taskFormEl.on('submit', handleTaskSubmit);
-
-
-// renderLastScheduled();
-
-// function renderLastScheduled() {
-//     var taskInput = localStorage.setItem('task-input', '');
-//     if (!taskInput) {
-//       return;
-//     }
-
-//     taskInputSpan.textContent = task;
-//   }
-
-// window.localStorage.setItem('task-input', '');
-// window.localStorage.getItem('task-input');
-
-
-
-// TEST:
-localStorage.setItem('test', 1);
-alert(localStorage.getItem('test'));
-
-
-// You'll need to use the [Moment.js](https://momentjs.com/) library to work with date and time. 
-// Be sure to read the documentation carefully and concentrate on using Moment.js in the browser.
